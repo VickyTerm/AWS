@@ -1,0 +1,350 @@
+================================================================================
+                    SHELL SCRIPTING TASK - SIMPLE EXPLANATION
+================================================================================
+
+📋 WHAT WAS THE TASK?
+================================================================================
+
+You were given 2 tasks to complete using shell scripting:
+
+TASK 1: Create a script to check if guvi.in website is working
+        - Get the HTTP status code (like 200, 404, 500, etc.)
+        - Print "SUCCESS" or "FAILURE" based on the code
+
+TASK 2: Create a script to replace text in a file
+        - Replace the word "give" with "learning"
+        - BUT only from line 5 onwards (not lines 1-4)
+        - AND only in lines that contain the word "welcome"
+
+
+================================================================================
+📁 WHAT FILES WERE CREATED?
+================================================================================
+
+1. http_status_checker.sh
+   ├─ Purpose: Checks if guvi.in is working
+   ├─ How it works: Uses 'curl' command to get HTTP status code
+   └─ Output: Shows status code and success/failure message
+
+2. text_replacer.sh
+   ├─ Purpose: Replaces "give" with "learning" conditionally
+   ├─ How it works: Uses 'awk' to process file line by line
+   └─ Output: Shows the modified text
+
+3. sample_input.txt
+   ├─ Purpose: Test file for text_replacer.sh
+   └─ Contains: 15 lines with different combinations of "give" and "welcome"
+
+4. README.md
+   └─ Purpose: Documentation explaining how to use the scripts
+
+5. SUBMISSION_GUIDE.md
+   └─ Purpose: Step-by-step guide for submitting to GitHub
+
+6. git_setup.sh
+   └─ Purpose: Helper script to setup Git automatically
+
+
+================================================================================
+🚀 HOW TO RUN THE SCRIPTS?
+================================================================================
+
+STEP 1: Open Terminal
+-------
+Press Ctrl+Alt+T or search for "Terminal" in your applications
+
+
+STEP 2: Navigate to the Project Folder
+-------
+cd /home/vickytricky/Documents/Devops-Guvi/shell-task4
+
+
+STEP 3: Run the HTTP Status Checker
+-------
+./http_status_checker.sh
+
+What happens:
+- Script connects to https://guvi.in
+- Gets the HTTP status code (e.g., 200, 301, 404, 500)
+- Shows you if the website is working or not
+- Displays colored output:
+  * GREEN = Success (2xx codes)
+  * BLUE = Redirect (3xx codes)
+  * YELLOW = Client Error (4xx codes)
+  * RED = Server Error (5xx codes)
+
+
+STEP 4: Run the Text Replacer
+-------
+./text_replacer.sh sample_input.txt
+
+What happens:
+- Script reads sample_input.txt line by line
+- For lines 1-4: Keeps them unchanged
+- For lines 5 and onwards:
+  * Checks if line contains "welcome"
+  * If YES: Replaces all "give" with "learning"
+  * If NO: Keeps line unchanged
+- Shows the output on screen
+
+
+================================================================================
+🔍 DETAILED EXPLANATION OF EACH TASK
+================================================================================
+
+TASK 1: HTTP STATUS CHECKER
+----------------------------
+
+What is HTTP Status Code?
+- When you visit a website, the server sends back a code
+- 200 = OK (website working fine)
+- 301 = Redirect (website moved to another location)
+- 404 = Not Found (page doesn't exist)
+- 500 = Server Error (website has problems)
+
+How the script works:
+1. Uses 'curl' command to connect to guvi.in
+2. Gets only the status code (not the whole webpage)
+3. Checks what range the code is in:
+   - 200-299 → SUCCESS
+   - 300-399 → REDIRECT
+   - 400-499 → CLIENT ERROR
+   - 500-599 → SERVER ERROR
+4. Prints a colored message
+
+Command used:
+curl -o /dev/null -s -w "%{http_code}" "https://guvi.in"
+  ├─ -o /dev/null : Don't save the webpage
+  ├─ -s : Silent mode (no progress bar)
+  └─ -w "%{http_code}" : Only show the status code
+
+
+TASK 2: TEXT REPLACER
+----------------------
+
+The Rules:
+1. Lines 1-4: Don't touch them at all
+2. Lines 5+: Check if line has "welcome"
+   - If line has "welcome": Replace "give" → "learning"
+   - If line doesn't have "welcome": Leave it alone
+
+Example:
+Line 1: "give me something" → NO CHANGE (before line 5)
+Line 5: "welcome, I give you" → "welcome, I learning you" (has "welcome")
+Line 7: "give without welcome" → "learning without welcome" (has "welcome")
+Line 11: "give me a break" → NO CHANGE (no "welcome")
+
+How the script works:
+1. Uses 'awk' to read file line by line
+2. Keeps a counter (NR = line number)
+3. If NR < 5: Print line as-is
+4. If NR >= 5:
+   - Check if line contains "welcome"
+   - If yes: Use gsub() to replace "give" with "learning"
+   - Print the line (modified or original)
+
+
+================================================================================
+📊 TEST RESULTS
+================================================================================
+
+HTTP Status Checker Test:
+-------------------------
+Input: https://guvi.in
+Output: HTTP Status Code: 301
+Result: ✓ REDIRECT (website is working, just redirecting)
+
+
+Text Replacer Test:
+-------------------
+Input File: sample_input.txt (15 lines)
+
+Line 1: "This is line 1 - no changes should happen here"
+→ Output: UNCHANGED ✓ (before line 5)
+
+Line 2: "This is line 2 - give me something but no welcome here"
+→ Output: UNCHANGED ✓ (before line 5)
+
+Line 4: "Line 4: I give you a welcome message"
+→ Output: UNCHANGED ✓ (before line 5, even though it has "welcome")
+
+Line 5: "Line 5: welcome to the session, I give you my best regards"
+→ Output: "Line 5: welcome to the session, I learning you my best regards" ✓
+   (line 5+, has "welcome", so "give" → "learning")
+
+Line 7: "Line 7: give without welcome should not change"
+→ Output: "Line 7: learning without welcome should not change" ✓
+   (line 5+, has "welcome", so "give" → "learning")
+
+Line 11: "Line 11: just a regular line with give"
+→ Output: UNCHANGED ✓ (no "welcome", so "give" stays as "give")
+
+Line 13: "Line 13: give me a break"
+→ Output: UNCHANGED ✓ (no "welcome", so "give" stays as "give")
+
+
+================================================================================
+🎯 QUICK REFERENCE - COMMON COMMANDS
+================================================================================
+
+Navigate to project:
+    cd /home/vickytricky/Documents/Devops-Guvi/shell-task4
+
+List all files:
+    ls -lah
+
+Run HTTP checker:
+    ./http_status_checker.sh
+
+Run text replacer:
+    ./text_replacer.sh sample_input.txt
+
+View a file:
+    cat sample_input.txt
+
+Edit a file:
+    nano sample_input.txt
+
+Make script executable (if needed):
+    chmod +x http_status_checker.sh
+    chmod +x text_replacer.sh
+
+
+================================================================================
+📤 HOW TO SUBMIT TO GITHUB?
+================================================================================
+
+OPTION 1: Use the Helper Script (EASIEST)
+------------------------------------------
+1. Open terminal in project folder
+2. Run: ./git_setup.sh
+3. Follow the instructions it gives you
+4. Create a GitHub repository online
+5. Copy the repository URL
+6. Run the commands it tells you
+
+
+OPTION 2: Manual Method
+------------------------
+1. Open terminal in project folder
+
+2. Initialize Git:
+   git init
+
+3. Configure Git (first time only):
+   git config user.name "Your Name"
+   git config user.email "your.email@example.com"
+
+4. Add files:
+   git add http_status_checker.sh text_replacer.sh sample_input.txt README.md
+
+5. Commit:
+   git commit -m "Add shell scripting tasks"
+
+6. Go to GitHub.com and create a new repository
+
+7. Copy the repository URL (looks like: https://github.com/username/repo-name.git)
+
+8. Link your local folder to GitHub:
+   git remote add origin <paste-your-url-here>
+
+9. Push to GitHub:
+   git branch -M main
+   git push -u origin main
+
+10. Take screenshots of:
+    - Terminal showing script outputs
+    - GitHub repository page
+
+11. Submit the GitHub URL in your portal
+
+
+================================================================================
+❓ TROUBLESHOOTING
+================================================================================
+
+Problem: "Permission denied" when running script
+Solution: Make it executable
+    chmod +x http_status_checker.sh
+    chmod +x text_replacer.sh
+
+Problem: "curl: command not found"
+Solution: Install curl
+    sudo apt update
+    sudo apt install curl -y
+
+Problem: Script shows weird characters instead of colors
+Solution: This is normal in some terminals, the script still works
+
+Problem: "No such file or directory"
+Solution: Make sure you're in the right folder
+    cd /home/vickytricky/Documents/Devops-Guvi/shell-task4
+    pwd  (this shows your current location)
+
+
+================================================================================
+💡 KEY CONCEPTS YOU LEARNED
+================================================================================
+
+1. Shell Scripting Basics
+   - Creating executable scripts with #!/bin/bash
+   - Using variables
+   - Conditional statements (if-else)
+
+2. HTTP Status Codes
+   - What they mean
+   - How to check them with curl
+
+3. Text Processing
+   - Using awk for line-by-line processing
+   - Pattern matching with regular expressions
+   - Conditional text replacement
+
+4. Git & Version Control
+   - Initializing repositories
+   - Committing changes
+   - Pushing to GitHub
+
+5. Linux Commands
+   - chmod (change permissions)
+   - curl (make HTTP requests)
+   - awk (text processing)
+
+
+================================================================================
+📝 SUMMARY
+================================================================================
+
+What you have:
+✓ 2 working shell scripts
+✓ Test files and outputs
+✓ Complete documentation
+✓ Helper scripts for Git setup
+
+What you need to do:
+1. Test the scripts (already done, but you can run them again)
+2. Setup Git repository
+3. Push to GitHub
+4. Take screenshots
+5. Submit URL in portal
+
+Everything is ready to go! Just follow the steps in SUBMISSION_GUIDE.md
+
+
+================================================================================
+🎓 FOR FUTURE REFERENCE
+================================================================================
+
+This file explains:
+- What the task was about
+- How each script works
+- How to run the scripts
+- How to submit to GitHub
+- Common problems and solutions
+
+Keep this file for future shell scripting tasks!
+
+
+================================================================================
+                              END OF EXPLANATION
+================================================================================

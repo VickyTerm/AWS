@@ -1,0 +1,10 @@
+==========================================
+HTTP Status Code Checker for guvi.in
+==========================================
+
+Checking https://guvi.in...
+HTTP Status Code: 301
+
+[0;34m→ REDIRECT[0m
+The website returned a redirect response.
+Status Code 301 indicates the resource has been redirected.

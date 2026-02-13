@@ -1,0 +1,15 @@
+This is line 1 - no changes should happen here
+This is line 2 - give me something but no welcome here
+Line 3 contains give but not the magic word
+Line 4: I give you a welcome message (should not change - before line 5)
+Line 5: welcome to the session, I give you my best regards
+Line 6: I will give you a warm welcome to our platform
+Line 7: give without welcome should not change
+Line 8: welcome here, we give and give again
+Line 9: no special words here
+Line 10: welcome! I give you this opportunity to learn
+Line 11: just a regular line with give
+Line 12: a warm welcome, give it your all
+Line 13: give me a break
+Line 14: welcome aboard, we give you the tools
+Line 15: final line - welcome and give you success

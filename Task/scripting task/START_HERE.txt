@@ -1,0 +1,110 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                    QUICK START GUIDE                             ║
+║                  (Read this first!)                              ║
+╚══════════════════════════════════════════════════════════════════╝
+
+🎯 WHAT YOU NEED TO KNOW IN 30 SECONDS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+I created 2 shell scripts for your assignment:
+
+1️⃣  http_status_checker.sh  → Checks if guvi.in is working
+2️⃣  text_replacer.sh         → Replaces text in a file
+
+
+🚀 HOW TO RUN (3 SIMPLE STEPS):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: Open Terminal (Ctrl+Alt+T)
+
+STEP 2: Go to project folder
+    cd /home/vickytricky/Documents/Devops-Guvi/shell-task4
+
+STEP 3: Run the demo to see everything in action
+    ./demo.sh
+
+
+📚 WANT TO UNDERSTAND EVERYTHING?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Read this file (it has EVERYTHING explained):
+    cat .understand
+
+Or open it in a text editor:
+    nano .understand
+
+
+🎬 JUST WANT TO SEE IT WORK?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Run the interactive demo:
+    ./demo.sh
+
+This will show you:
+- What each script does
+- How it works
+- What the output looks like
+
+
+📤 READY TO SUBMIT?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Read the submission guide:
+    cat SUBMISSION_GUIDE.md
+
+Or run the Git helper:
+    ./git_setup.sh
+
+
+🆘 NEED HELP?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+All files explained:
+
+.understand           → Complete explanation of everything
+SUBMISSION_GUIDE.md   → How to submit to GitHub
+README.md             → Technical documentation
+demo.sh               → Interactive demonstration
+
+Scripts:
+http_status_checker.sh → Task 1 script
+text_replacer.sh       → Task 2 script
+git_setup.sh           → Git helper
+
+Test files:
+sample_input.txt       → Test input
+http_output.txt        → Task 1 output
+text_output.txt        → Task 2 output
+
+
+⚡ SUPER QUICK COMMANDS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# See the demo
+./demo.sh
+
+# Run Task 1
+./http_status_checker.sh
+
+# Run Task 2
+./text_replacer.sh sample_input.txt
+
+# Setup Git
+./git_setup.sh
+
+# List all files
+ls -lah
+
+
+💡 REMEMBER:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Everything is already done and tested
+✓ Scripts are working perfectly
+✓ You just need to understand and submit
+✓ Run ./demo.sh to see everything in action
+
+
+╔══════════════════════════════════════════════════════════════════╗
+║  START HERE: ./demo.sh                                           ║
+╚══════════════════════════════════════════════════════════════════╝

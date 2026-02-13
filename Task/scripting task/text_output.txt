@@ -1,0 +1,29 @@
+==========================================
+Text Replacement Script
+==========================================
+[0;34mInput File:[0m sample_input.txt
+[0;34mRule:[0m Replace 'give' with 'learning' from line 5 onwards
+[0;34mCondition:[0m Only in lines containing 'welcome'
+
+==========================================
+OUTPUT:
+==========================================
+This is line 1 - no changes should happen here
+This is line 2 - give me something but no welcome here
+Line 3 contains give but not the magic word
+Line 4: I give you a welcome message (should not change - before line 5)
+Line 5: welcome to the session, I learning you my best regards
+Line 6: I will learning you a warm welcome to our platform
+Line 7: learning without welcome should not change
+Line 8: welcome here, we learning and learning again
+Line 9: no special words here
+Line 10: welcome! I learning you this opportunity to learn
+Line 11: just a regular line with give
+Line 12: a warm welcome, learning it your all
+Line 13: give me a break
+Line 14: welcome aboard, we learning you the tools
+Line 15: final line - welcome and learning you success
+
+==========================================
+[0;32mProcessing Complete![0m
+==========================================
